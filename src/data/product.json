@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "product1",
+        "category": "clothes",
+        "img_large": "",
+        "img": "",
+        "price": 100,
+        "quantity": 1,
+        "size": "Large",
+        "details": "this is product description for 1",
+        "extra":{}
+    },
+    {
+        "id": 2,
+        "name": "product 2",
+        "category": "clothes",
+        "img_large": "",
+        "img": "",
+        "price": 200,
+        "quantity": 2,
+        "size": "Large",
+        "details": "this is product description for 2",
+        "extra":{}
+    },
+    {
+        "id": 3,
+        "name": "product name 3",
+        "category": "Decor",
+        "img_large": "",
+        "img": "",
+        "price": 300,
+        "quantity": 3,
+        "size": "Large",
+        "details": "this is product description for 3",
+        "extra":{}
+    },
+    {
+        "id": 4,
+        "name": "product 4",
+        "category": "Food",
+        "img_large": "",
+        "img": "",
+        "price": 400,
+        "quantity": 4,
+        "size": "Large",
+        "details": "this is product description for 4",
+        "extra":{}
+    },
+    {
+        "id": 5,
+        "name": "product name 5",
+        "category": "Phones",
+        "img": "",
+        "img_large": "",
+        "price": 500,
+        "quantity": 5,
+        "size": "Medium",
+        "details": "this is product description for 5",
+        "extra":{}
+    }
+]
