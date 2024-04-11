@@ -1,3 +1,15 @@
+# installs
+
+### S0:
+npx create-react-app .
+
+### S1:
+npm i react-redux
+npm install @reduxjs/toolkit
+
+### S2:
+npm i react-router-dom
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -30,14 +42,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run eject`
-
-
-### S0:
-npx create-react-app .
-
-### S1:
-npm i react-redux
-npm install @reduxjs/toolkit
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 

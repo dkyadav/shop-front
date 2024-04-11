@@ -5,7 +5,7 @@ import cartReducer from "./reducers/cart.reducer";
 
 export default configureStore({
 	reducer: {
-        profile: userReducer,
+        user: userReducer,
         products: productReducer,
         cart: cartReducer,
     },
