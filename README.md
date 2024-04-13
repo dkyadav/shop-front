@@ -10,6 +10,11 @@ npm install @reduxjs/toolkit
 ### S2:
 npm i react-router-dom
 
+### S3:
+npm i axios
+npm i jwt-decode
+npm install redux-persist
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
