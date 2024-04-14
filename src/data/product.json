@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "_id": 1,
         "name": "product1",
         "category": "clothes",
         "img_large": "",
@@ -12,7 +12,7 @@
         "extra":{}
     },
     {
-        "id": 2,
+        "_id": 2,
         "name": "product 2",
         "category": "clothes",
         "img_large": "",
@@ -24,7 +24,7 @@
         "extra":{}
     },
     {
-        "id": 3,
+        "_id": 3,
         "name": "product name 3",
         "category": "Decor",
         "img_large": "",
@@ -36,7 +36,7 @@
         "extra":{}
     },
     {
-        "id": 4,
+        "_id": 4,
         "name": "product 4",
         "category": "Food",
         "img_large": "",
@@ -48,7 +48,7 @@
         "extra":{}
     },
     {
-        "id": 5,
+        "_id": 5,
         "name": "product name 5",
         "category": "Phones",
         "img": "",

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"
-import { updateEmail, updateName, updateToken } from "../../store/reducers/user.reducer";
+import { updateEmail, updateId, updateName, updateToken } from "../../store/reducers/user.reducer";
 import { useEffect } from 'react';
 
 export default function Logout() {
@@ -12,6 +12,7 @@ export default function Logout() {
         dispatch(updateName(""));
         dispatch(updateEmail(""));
         dispatch(updateToken(""));
+        dispatch(updateId(""));
         localStorage.removeItem("token");
         navigate("/login");
     }, []);

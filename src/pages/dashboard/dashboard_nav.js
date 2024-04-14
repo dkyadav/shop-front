@@ -16,7 +16,10 @@ export default function NavigationDashboard({ uname, cartitems }) {
 				<Link to="/dashboard/profile">Account Details</Link>
 			</li>
 			<li>
-				<Link to="/dashboard/product">Products</Link>
+				<Link to="/dashboard/addproduct">Add Product</Link>
+			</li>
+			<li>
+				<Link to="/dashboard/products">Product List</Link>
 			</li>
 			<li>
 				<Link to="/dashboard/order">Orders</Link>

@@ -29,9 +29,9 @@ export default function Products() {
             {
                 products &&
                 <div style={mainBox}>
-                    {products.map(p => {
+                    {products.map((p,i) => {
                         return (
-                            <div style={subBox} key={p.id}>
+                            <div style={subBox} key={i}>
                                 Name: {p.name}<br/>
                                 Quantity left: {p.quantity}<br/>
                                 Price: {p.price}

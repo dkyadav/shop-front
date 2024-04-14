@@ -6,7 +6,7 @@ const default_token = await storage.getItem("token");
 const {
 	email: default_email,
 	name: default_name,
-	id: default_id,
+	_id: default_id,
 } = default_token ? jwtDecode(default_token) : "";
 
 const userSlice = createSlice({

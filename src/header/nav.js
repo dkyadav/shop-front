@@ -21,7 +21,7 @@ export default function Navigation({ uname, cartitems }) {
 				<Link to="/products">Product</Link>
 			</li>
 			<li>
-				<Link to="/dashboard/profile">Profile</Link>
+				<Link to="/img">Img</Link>
 			</li>
 			<li>
 				<Link to="/cart">Cart {cart.length}</Link>

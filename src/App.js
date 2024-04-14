@@ -12,9 +12,25 @@ import NavigationDashboard from "./pages/dashboard/dashboard_nav";
 import ProtectedRoute from "../src/utils/ProtectedRoutes";
 import Product from "./pages/dashboard/product";
 import Order from "./pages/dashboard/order";
+import ProductView from "./pages/dashboard/productView";
+import { ImageUpload } from "./pages/preview";
+// import axios from "axios";
+
+// axios.interceptors.request.use(
+// 	(config) => {
+// 		config.headers.Authorization = `Bearer ${localStorage.getItem(
+// 			"token"
+// 		)}`;
+// 		return config;
+// 	},
+// 	(error) => {
+// 		return Promise.reject(error);
+// 	}
+// );
 
 
-function App() { 
+
+function App() {
 	return (
 		<div>
 			<BrowserRouter>
@@ -28,6 +44,7 @@ function App() {
 						/>
 					</Route>
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/img" element={<ImageUpload />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 
@@ -37,16 +54,67 @@ function App() {
 						<Route path="logout" element={<Logout />} />
 						<Route path="*" element={<Main />} />
 					</Route> */}
-					
-					<Route path="/dashboard">
-						<Route path="main" element={<ProtectedRoute><Main /></ProtectedRoute>} />
-                        <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
-						<Route path="product" element={<ProtectedRoute><Product /></ProtectedRoute>} />
-						<Route path="order" element={<ProtectedRoute><Order /></ProtectedRoute>} />
-						<Route path="logout" element={<Logout />} />
-						<Route path="*" element={<ProtectedRoute><Main /></ProtectedRoute>} />
-                    </Route>
 
+					<Route path="/dashboard">
+						<Route
+							path="main"
+							element={
+								<ProtectedRoute>
+									<Main />
+								</ProtectedRoute>
+							}
+						/>
+						<Route
+							path="profile"
+							element={
+								<ProtectedRoute>
+									<Profile />
+								</ProtectedRoute>
+							}
+						/>
+						<Route
+							path="addproduct"
+							element={
+								<ProtectedRoute>
+									<Product />
+								</ProtectedRoute>
+							}
+						>
+							<Route
+								path=":productid"
+								element={
+									<ProtectedRoute>
+										<Product />
+									</ProtectedRoute>
+								}
+							/>
+						</Route>
+						<Route
+							path="products"
+							element={
+								<ProtectedRoute>
+									<ProductView />
+								</ProtectedRoute>
+							}
+						/>
+						<Route
+							path="order"
+							element={
+								<ProtectedRoute>
+									<Order />
+								</ProtectedRoute>
+							}
+						/>
+						<Route path="logout" element={<Logout />} />
+						<Route
+							path="*"
+							element={
+								<ProtectedRoute>
+									<Main />
+								</ProtectedRoute>
+							}
+						/>
+					</Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

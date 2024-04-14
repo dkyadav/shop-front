@@ -26,9 +26,9 @@ export default function Cart() {
                 cartitemlist &&
                 <div style={mainBox}>
 
-                    {cartitemlist.map(p => {
+                    {cartitemlist.map((p,i) => {
                         return (
-                            <div style={subBox} key={p.id}>
+                            <div style={subBox} key={`${i}_${p._id}`}>
                                 Name: {p.name}<br />
                                 Quantity Added: {p.quantity}<br />
                                 Price: {p.price}
@@ -36,7 +36,7 @@ export default function Cart() {
                                 {
                                     p.quantity > 0 &&
                                     <button onClick={() => {
-                                            dispatch(removeCart(p.id));
+                                            dispatch(removeCart(p._id));
                                             dispatch(incrementQuantity(p))
                                         }
                                     }>Remove from cart</button>
