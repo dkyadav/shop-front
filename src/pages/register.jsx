@@ -1,15 +1,19 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux"
 import { updateEmail, updateId, updateName, updateToken } from "../store/reducers/user.reducer";
 import config from "../data/config.json";
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
+import { RegisterSchema } from '../validations/register.validate';
+
+
 
 export default function Register() {
 
     const [inputs, setInputs] = useState('');
+    const [formerror, setFormerror] = useState();
     const [role, setUserRole] = useState('user');
 
     const dispatch = useDispatch();
@@ -35,7 +39,27 @@ export default function Register() {
     function handleChange(event) {
         const curName = event.target.name;
         const curValue = event.target.value;
-        if(curName === 'role')
+
+        if (RegisterSchema[curName]) {
+            const validateResult = RegisterSchema[curName].validate(curValue);
+            //console.log(validateResult);
+            if (validateResult.error) {
+                setFormerror({ ...formerror, [curName]: validateResult.error.details[0].message });
+            } else {
+                setFormerror({ ...formerror, [curName]: '' });
+            }
+        }
+
+        if (curName === 'cpassword') {
+            if (inputs.password === curValue) {
+                setFormerror({ ...formerror, [curName]: '' });
+            } else {
+                setFormerror({ ...formerror, [curName]: 'Password not matching' });
+            }
+        }
+
+
+        if (curName === 'role')
             setUserRole(curValue);
         setInputs({ ...inputs, [curName]: curValue });
     }
@@ -61,6 +85,9 @@ export default function Register() {
 
                                 />
                             </td>
+                            <td>
+                                {formerror && formerror.name ? <>{formerror.name}</> : ""}
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -74,6 +101,9 @@ export default function Register() {
                                 onChange={handleChange}
 
                             /></td>
+                            <td>
+                                {formerror && formerror.email ? <>{formerror.email}</> : ""}
+                            </td>
                         </tr>
                         <tr>
                             <td><label htmlFor='password'>Password</label></td>
@@ -85,6 +115,9 @@ export default function Register() {
                                 onChange={handleChange}
 
                             /></td>
+                            <td>
+                                {formerror && formerror.password ? <>{formerror.password}</> : ""}
+                            </td>
                         </tr>
                         <tr>
                             <td><label htmlFor='cpassword'>Confirm Password</label></td>
@@ -96,6 +129,9 @@ export default function Register() {
                                 onChange={handleChange}
 
                             /></td>
+                            <td>
+                                {formerror && formerror.cpassword ? <>{formerror.cpassword}</> : ""}
+                            </td>
                         </tr>
                         <tr>
                             <td><label htmlFor='role'>User Role</label></td>
@@ -106,8 +142,24 @@ export default function Register() {
                         </tr>
                         <tr>
                             <td colSpan={2}>
-                                <input type="submit" name="submit" value="Register" style={{ width: '100%' }} />
+                                <input type="submit" name="submit" value="Register"
+                                    style={{ width: '100%' }}
+                                    disabled={
+                                        formerror &&
+                                            Object.values(formerror).reduce((acc, curv) => acc + curv).length > 0
+                                            ? 'disabled' : ''
+                                    }
+                                />
                             </td>
+                            {/* {
+                                formerror && Object.values(formerror).map(v =>
+                                    (<>{v}</>)
+                                )
+                            } */}
+                            {/* {
+                                formerror && (<>{Object.values(formerror).reduce((acc, curv) => acc + curv).length}</>)
+
+                            } */}
                         </tr>
                     </tbody>
                 </table>
