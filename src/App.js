@@ -14,6 +14,7 @@ import Product from "./pages/dashboard/product";
 import Order from "./pages/dashboard/order";
 import ProductView from "./pages/dashboard/productView";
 import { ImageUpload } from "./pages/preview";
+import ProductDetail from "./pages/productDetail";
 // import axios from "axios";
 
 // axios.interceptors.request.use(
@@ -28,8 +29,6 @@ import { ImageUpload } from "./pages/preview";
 // 	}
 // );
 
-
-
 function App() {
 	return (
 		<div>
@@ -37,83 +36,25 @@ function App() {
 				<Navigation />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/products" element={<Products />}>
-						<Route
-							path="/products/:productid"
-							element={<Products />}
-						/>
+					<Route path="products">
+						<Route path="/products" element={<Products />} />
+						<Route path="/products/:productid" element={<ProductDetail />} />
 					</Route>
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/img" element={<ImageUpload />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 
-					{/* <Route path="/dashboard" element={<ProtectedRoute/>}>
-						<Route path="main" element={<Main />} />
-                        <Route path="profile" element={<Profile />} />
-						<Route path="logout" element={<Logout />} />
-						<Route path="*" element={<Main />} />
-					</Route> */}
-
 					<Route path="/dashboard">
-						<Route
-							path="main"
-							element={
-								<ProtectedRoute>
-									<Main />
-								</ProtectedRoute>
-							}
-						/>
-						<Route
-							path="profile"
-							element={
-								<ProtectedRoute>
-									<Profile />
-								</ProtectedRoute>
-							}
-						/>
-						<Route
-							path="addproduct"
-							element={
-								<ProtectedRoute>
-									<Product />
-								</ProtectedRoute>
-							}
-						>
-							<Route
-								path=":productid"
-								element={
-									<ProtectedRoute>
-										<Product />
-									</ProtectedRoute>
-								}
-							/>
+						<Route path="main" element={<ProtectedRoute><Main /></ProtectedRoute>}/>
+						<Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}/>
+						<Route path="addproduct" element={<ProtectedRoute><Product /></ProtectedRoute>}>
+							<Route path=":productid" element={<ProtectedRoute><Product /></ProtectedRoute>}/>
 						</Route>
-						<Route
-							path="products"
-							element={
-								<ProtectedRoute>
-									<ProductView />
-								</ProtectedRoute>
-							}
-						/>
-						<Route
-							path="order"
-							element={
-								<ProtectedRoute>
-									<Order />
-								</ProtectedRoute>
-							}
-						/>
+						<Route path="products" element={<ProtectedRoute><ProductView /></ProtectedRoute>}/>
+						<Route path="order" element={<ProtectedRoute><Order /></ProtectedRoute>}/>
 						<Route path="logout" element={<Logout />} />
-						<Route
-							path="*"
-							element={
-								<ProtectedRoute>
-									<Main />
-								</ProtectedRoute>
-							}
-						/>
+						<Route path="*" element={<ProtectedRoute><Main /></ProtectedRoute>}/>
 					</Route>
 				</Routes>
 			</BrowserRouter>

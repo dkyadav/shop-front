@@ -29,11 +29,11 @@ const productSlice = createSlice({
 			state.find(
 				(current_state_item) =>
 					current_state_item._id === action.payload._id
-			).quantity -= 1;
+			).quantity -= action.payload.quantity;
 		},
 		incrementQuantity: (state, action) => {
 			//console.log(current(state.find((v) => v.id === action.payload.id)));
-			state.find((v) => v._id === action.payload._id).quantity += 1;
+			state.find((v) => v._id === action.payload._id).quantity += action.payload.quantity;
 		},
 		addProduct: (state, action) =>{
 			state = state.push(action.payload); 
