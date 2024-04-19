@@ -1,3 +1,4 @@
 {
-    "baseurl":"http://127.0.0.1:3876"
+    "baseurl_notinuse":"http://127.0.0.1:3876",
+    "baseurl":"https://dkyadav-shop-back.onrender.com"
 }
