@@ -15,19 +15,7 @@ import Order from "./pages/dashboard/order";
 import ProductView from "./pages/dashboard/productView";
 import { ImageUpload } from "./pages/preview";
 import ProductDetail from "./pages/productDetail";
-// import axios from "axios";
 
-// axios.interceptors.request.use(
-// 	(config) => {
-// 		config.headers.Authorization = `Bearer ${localStorage.getItem(
-// 			"token"
-// 		)}`;
-// 		return config;
-// 	},
-// 	(error) => {
-// 		return Promise.reject(error);
-// 	}
-// );
 
 function App() {
 	

@@ -4,12 +4,19 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import configureStore from "./store/store";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme";
+//import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<Provider store={configureStore}>
-			<App />
+			<ThemeProvider theme={theme}>
+				<CssBaseline />
+				<App />
+			</ThemeProvider>
 		</Provider>
 	</React.StrictMode>
 );
