@@ -5,8 +5,9 @@ import config from "../../data/config.json";
 //import data from "../../data/product.json"
 
 async function fetchData() {
+	console.log(process.env.REACT_APP_BASE_URL);
 	try {
-		const products = await axios.get(`${config.baseurl}/allproducts`);
+		const products = await axios.get(`${process.env.REACT_APP_BASE_URL}/allproducts`);
 		return products.data
 	} catch (error) {
 		console.log(error);

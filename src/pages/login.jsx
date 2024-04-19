@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { updateEmail, updateName, updateToken, updateId } from "../store/reducers/user.reducer";
 import config from "../data/config.json";
+//import config from '../data/config'
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 import { useEffect } from 'react';
@@ -13,6 +14,7 @@ import { LoginSchema } from '../validations/login.validate';
 
 export default function Login() {
 
+    console.log(process.env.REACT_APP_BASE_URL);
     const profile = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const [inputs, setInputs] = useState('');
@@ -46,7 +48,7 @@ export default function Login() {
         console.log(inputs);
         console.log(JSON.stringify(inputs));
 
-        const response = await axios.post(`${config.baseurl}/signin`, inputs);
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/signin`, inputs);
         console.log(response.data);
         const user_info = jwtDecode(response.data.token);
         console.log(user_info);
@@ -67,10 +69,10 @@ export default function Login() {
         console.log(validateResult);
         if (validateResult.error) {
             setFormerror({ ...formerror, [curName]: validateResult.error.details[0].message });
-        } else{
-            setFormerror({ ...formerror, [curName]: ''});
+        } else {
+            setFormerror({ ...formerror, [curName]: '' });
         }
-        
+
         setInputs({ ...inputs, [curName]: curValue });
     }
 

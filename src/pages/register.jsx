@@ -24,7 +24,7 @@ export default function Register() {
         const register_inp = { ...inputs, role: role };
         console.log(register_inp);
         console.log(JSON.stringify(register_inp));
-        const response = await axios.post(`${config.baseurl}/register`, register_inp);
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/register`, register_inp);
         console.log(response.data);
 
         const user_info = jwtDecode(response.data.token);

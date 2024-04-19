@@ -17,12 +17,12 @@ export default function ProductView() {
 
     async function fetchData() {
         try {
-            const products = await axios.get(`${config.baseurl}/admin/allproducts`, {
+            const products = await axios.get(`${process.env.REACT_APP_BASE_URL}/admin/allproducts`, {
                 headers: {
                     "Authorization": `Bearer ${profile.token}`
                 }
             });
-            // const products = await authAxios.get(`${config.baseurl}/admin/allproducts`);
+            // const products = await authAxios.get(`${process.env.REACT_APP_BASE_URL}/admin/allproducts`);
             setProducts(products.data);
         } catch (error) {
             console.log(error);
@@ -44,7 +44,7 @@ export default function ProductView() {
         const shouldDelete = window.confirm('Sure to delete?');
         if (shouldDelete) {
             console.log(`Delete: ${id}`);
-            const del_Res = await axios.delete(`${config.baseurl}/product`, {
+            const del_Res = await axios.delete(`${process.env.REACT_APP_BASE_URL}/product`, {
                 headers: {
                     "Authorization": `Bearer ${profile.token}`
                 },

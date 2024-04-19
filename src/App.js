@@ -30,6 +30,7 @@ import ProductDetail from "./pages/productDetail";
 // );
 
 function App() {
+	
 	return (
 		<div>
 			<BrowserRouter>

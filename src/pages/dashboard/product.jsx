@@ -20,7 +20,7 @@ export default function Product() {
 
         async function fetchData(productid) {
             try {
-                const getProduct = await axios.get(`${config.baseurl}/admin/allproducts/${productid}`, {
+                const getProduct = await axios.get(`${process.env.REACT_APP_BASE_URL}/admin/allproducts/${productid}`, {
                     headers: {
                         "Authorization": `Bearer ${profile.token}`
                     }
@@ -47,7 +47,7 @@ export default function Product() {
 
         if (productid) {
             try {
-                const response = await axios.patch(`${config.baseurl}/product`, inputs,
+                const response = await axios.patch(`${process.env.REACT_APP_BASE_URL}/product`, inputs,
                     {
                         headers: {
                             "Authorization": `Bearer ${profile.token}`
@@ -64,7 +64,7 @@ export default function Product() {
 
             console.log(product_inp);
             try {
-                const response = await axios.put(`${config.baseurl}/product`, product_inp,
+                const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/product`, product_inp,
                     {
                         headers: {
                             "Authorization": `Bearer ${profile.token}`

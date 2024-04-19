@@ -78,7 +78,7 @@ ul.mainnav li a:hover {
 	padding: 10px;
 }
 
-ul.innerMenu {
+/* ul.innerMenu {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -87,6 +87,18 @@ ul.innerMenu {
 	position: fixed;
 	height: 100%;
 	overflow: auto;
+} */
+
+ul.innerMenu {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    position: static;
+    height: 500px;
+    overflow: auto;
+    float: left;
 }
 
 ul.innerMenu li a {
